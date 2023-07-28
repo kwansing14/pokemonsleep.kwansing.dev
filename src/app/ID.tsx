@@ -51,7 +51,10 @@ const ID: React.FC<Props> = ({ id, pic }) => {
 
   useEffect(() => {
     const data = localStorage.getItem("pschecked");
-    if (!data) return;
+    if (!data) {
+      setIsLoading(false);
+      return;
+    }
     if (data) {
       const res = JSON.parse(data) as checkedState;
       setStorageState(res);
