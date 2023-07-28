@@ -71,11 +71,13 @@ const ResearchIdSubmit = () => {
         className="mb-4 mr-4 w-full rounded-lg border border-slate-500 bg-transparent px-4 py-4 outline-none focus:border-slate-300 sm:mb-12 sm:w-80"
         onChange={handleChange}
         value={v}
+        aria-label="input researcher ID"
       />
       <button
         className="mb-8 w-full rounded-lg bg-slate-300 px-8 py-4 text-slate-800 transition-all disabled:cursor-not-allowed disabled:opacity-50 sm:mb-0 sm:w-auto"
         onClick={handleSubmit}
         disabled={!isValueValid(v) || isLoading}
+        aria-label="add researcher ID"
       >
         submit
       </button>

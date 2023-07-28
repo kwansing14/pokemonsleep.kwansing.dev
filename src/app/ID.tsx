@@ -77,6 +77,7 @@ const ID: React.FC<Props> = ({ id, pic }) => {
       <button
         className="flex w-16 items-center justify-center rounded-r-lg border border-slate-500"
         onClick={() => handleClick(id)}
+        aria-label="copy researcher ID"
       >
         {isLoading && <Loader className="w-6 animate-spin" />}
         {!isLoading && storageState[id] && <Check className="w-6" />}
