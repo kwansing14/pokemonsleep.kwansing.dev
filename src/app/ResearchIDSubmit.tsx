@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import { api } from "@/trpc/client";
+import { useRouter } from "next/navigation";
 
 const ResearchIdSubmit = () => {
   //https://pokeapi.co/api/v2/pokemon/1118/
   const [v, setV] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
   const mutate = api.id.createNewID.mutate;
   const getImage = async () => {
     try {
@@ -56,6 +58,7 @@ const ResearchIdSubmit = () => {
         checked: false,
       });
       setIsLoading(false);
+      router.refresh();
     } catch (e) {
       throw new Error("Error submitting ID");
       setIsLoading(false);
