@@ -12,11 +12,16 @@ const createNewID = publicProcedure
   .mutation(async ({ ctx, input }) => {
     const reg = /^\d{4}-\d{4}-\d{4}$/;
     const isValid = reg.test(input.researcherID);
-    if (!isValid) {
-      throw new Error("Invalid ID");
-    }
-    return ctx.prisma.iDs.create({
-      data: {
+    if (!isValid) throw new Error("Invalid ID");
+    return ctx.prisma.iDs.upsert({
+      where: {
+        researcherID: input.researcherID,
+      },
+      update: {
+        pic: input.pic,
+        updatedAt: new Date(),
+      },
+      create: {
         researcherID: input.researcherID,
         pic: input.pic,
         checked: input.checked,
@@ -26,7 +31,7 @@ const createNewID = publicProcedure
 
 const getAllIds = publicProcedure.query(async ({ ctx }) => {
   return ctx.prisma.iDs.findMany({
-    orderBy: { id: "desc" },
+    orderBy: { updatedAt: "desc" },
   });
 });
 
