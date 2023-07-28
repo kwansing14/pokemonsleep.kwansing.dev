@@ -1,9 +1,14 @@
-import Link from "next/link";
+import ResearchIdSubmit from "./ResearchIDSubmit";
+import ListOfIDs from "./ListOfIDs";
+import { api } from "@/trpc/server";
 
-export default function Home() {
+export default async function Home() {
+  const ids = await api.id.getAllIds.query();
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-[#2e026d] to-[#15162c]">
-      <div>hi</div>
+    <main className="mx-auto min-h-screen w-full max-w-7xl px-4">
+      <ResearchIdSubmit />
+      <div className="w-full border-t border-slate-400" />
+      <ListOfIDs ids={ids} />
     </main>
   );
 }

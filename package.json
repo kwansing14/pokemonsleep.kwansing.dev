@@ -17,9 +17,11 @@
     "@trpc/next": "^10.27.1",
     "@trpc/react-query": "^10.27.1",
     "@trpc/server": "^10.27.1",
+    "lucide-react": "^0.263.1",
     "next": "^13.4.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hot-toast": "^2.4.1",
     "superjson": "1.12.2",
     "zod": "^3.21.4"
   },
