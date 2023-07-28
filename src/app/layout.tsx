@@ -9,7 +9,7 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "PokemonSleep - Research Community",
+  title: "PokemonSleep - ResearchCommunity",
   description: "A place to connect researchers who research on Pokemon Sleep",
   icons: {
     icon: "/pikachu.png",
