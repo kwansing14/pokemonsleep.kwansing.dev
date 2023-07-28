@@ -63,7 +63,7 @@ const ID: React.FC<Props> = ({ id, pic }) => {
   }, []);
   return (
     <>
-      <div className="flex w-64 items-center justify-start gap-4 rounded-l-lg border border-slate-500 px-4">
+      <div className="flex w-full items-center justify-start gap-4 rounded-l-lg border border-slate-500 px-4 sm:w-64">
         <div className="relative h-12 w-12 overflow-hidden rounded-full border-slate-700">
           <Image src={pic || ""} alt="Picture of the author" fill />
         </div>

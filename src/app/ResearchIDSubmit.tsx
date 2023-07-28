@@ -65,14 +65,14 @@ const ResearchIdSubmit = () => {
 
   return (
     <>
-      <div className="mx-8 mb-4 pt-24">Paste your Researcher ID here:</div>
+      <div className="mb-4 pt-8 sm:pt-24">Paste your Researcher ID here:</div>
       <input
-        className="mx-8 mb-12 w-80 rounded-lg border border-slate-500 bg-transparent px-4 py-4 outline-none focus:border-slate-300"
+        className="mb-4 mr-4 w-full rounded-lg border border-slate-500 bg-transparent px-4 py-4 outline-none focus:border-slate-300 sm:mb-12 sm:w-80"
         onChange={handleChange}
         value={v}
       />
       <button
-        className="rounded-lg bg-slate-300 px-8 py-4 text-slate-800 transition-all disabled:cursor-not-allowed disabled:opacity-50"
+        className="mb-8 w-full rounded-lg bg-slate-300 px-8 py-4 text-slate-800 transition-all disabled:cursor-not-allowed disabled:opacity-50 sm:mb-0 sm:w-auto"
         onClick={handleSubmit}
         disabled={!isValueValid(v) || isLoading}
       >
