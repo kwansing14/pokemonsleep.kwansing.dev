@@ -18,6 +18,7 @@ const ListOfIDs: React.FC<Props> = ({ ids = [] }) => {
             <ID id={id.researcherID} pic={id.pic} />
           </div>
         ))}
+        {ids.length % 3 === 2 && <div className="w-80" />}
       </div>
     </div>
   );
