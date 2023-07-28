@@ -1,16 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useState, use } from "react";
 import { api } from "@/trpc/client";
 
 const ResearchIdSubmit = () => {
-  //https://pokeapi.co/api/v2/pokemon/{id or name}/
+  //https://pokeapi.co/api/v2/pokemon/1118/
   const [v, setV] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const mutate = api.id.createNewID.mutate;
 
+  const getImage = async () => {
+    try {
+      const id = getRandomNumber();
+      const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+      const data = await res.json();
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+      return data?.sprites?.other["official-artwork"].front_default as string;
+    } catch (e) {
+      throw new Error("Error fetching image");
+    }
+  };
+
   const numToId = (num: number) => {
     return num.toString().replace(/\d{4}(?!$)/g, "$&-");
+  };
+
+  const getRandomNumber = () => {
+    return Math.floor(Math.random() * 1009) + 1;
   };
 
   const isValueValid = (value: string) => {
@@ -33,9 +50,10 @@ const ResearchIdSubmit = () => {
     if (!isValueValid(v)) return;
     setIsLoading(true);
     try {
+      const randomPokemonImage = await getImage();
       await mutate({
         researcherID: v,
-        pic: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png",
+        pic: randomPokemonImage,
         checked: false,
       });
       setIsLoading(false);
