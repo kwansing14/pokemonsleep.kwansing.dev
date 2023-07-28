@@ -66,7 +66,7 @@ const ResearchIdSubmit = () => {
 
   return (
     <>
-      <div className="mb-4 pt-8 sm:pt-24">Paste your Researcher ID here:</div>
+      <div className="mb-4 pt-8 sm:pt-8">Paste your Researcher ID here:</div>
       <input
         className="mb-4 mr-4 w-full rounded-lg border border-slate-500 bg-transparent px-4 py-4 outline-none focus:border-slate-300 sm:mb-12 sm:w-80"
         onChange={handleChange}
