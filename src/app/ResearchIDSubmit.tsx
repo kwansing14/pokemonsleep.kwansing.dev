@@ -8,7 +8,6 @@ const ResearchIdSubmit = () => {
   const [v, setV] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const mutate = api.id.createNewID.mutate;
-
   const getImage = async () => {
     try {
       const id = getRandomNumber();
@@ -58,7 +57,7 @@ const ResearchIdSubmit = () => {
       });
       setIsLoading(false);
     } catch (e) {
-      console.log(e);
+      throw new Error("Error submitting ID");
       setIsLoading(false);
     }
   };
