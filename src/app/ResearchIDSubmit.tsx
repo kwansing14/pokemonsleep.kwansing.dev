@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, use } from "react";
+import { useState } from "react";
 import { api } from "@/trpc/client";
 
 const ResearchIdSubmit = () => {
