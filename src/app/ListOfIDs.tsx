@@ -1,15 +1,8 @@
 import ID from "./ID";
+import { api } from "@/trpc/server";
 
-interface Props {
-  ids?: {
-    id: string;
-    pic: string;
-    checked: boolean | null;
-    researcherID: string;
-  }[];
-}
-
-const ListOfIDs: React.FC<Props> = ({ ids = [] }) => {
+async function ListOfIDs() {
+  const ids = await api.id.getAllIds.query();
   return (
     <div className="mt-8 flex flex-wrap justify-between gap-4 sm:mt-12">
       <div className="flex flex-wrap justify-between gap-4">
@@ -22,6 +15,6 @@ const ListOfIDs: React.FC<Props> = ({ ids = [] }) => {
       </div>
     </div>
   );
-};
+}
 
 export default ListOfIDs;
