@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Copy, Check, Loader } from "lucide-react";
 import toast from "react-hot-toast";
+import { Suspense } from "react";
 
 interface Props {
   id: string;
@@ -61,16 +62,20 @@ const ID: React.FC<Props> = ({ id, pic }) => {
     }
     setIsLoading(false);
   }, []);
+
   return (
     <>
       <div className="flex w-full items-center justify-start gap-4 rounded-l-lg border border-slate-500 px-4 sm:w-64">
         <div className="h-12 w-12 overflow-hidden rounded-full border-slate-700">
-          <Image
-            src={pic || ""}
-            alt="Picture of the author"
-            width={48}
-            height={48}
-          />
+          {pic && (
+            <Image
+              src={pic}
+              alt="Picture of the author"
+              width={48}
+              height={48}
+              // loading={"eager"}
+            />
+          )}
         </div>
         <div>{id}</div>
       </div>
