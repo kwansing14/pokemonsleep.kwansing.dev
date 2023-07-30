@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Copy, Check, Loader } from "lucide-react";
 import toast from "react-hot-toast";
-import { Suspense } from "react";
+import { updateLocalStorage, copyToClipboard } from "@/utils";
 
 interface Props {
   id: string;
@@ -20,25 +20,6 @@ const ID: React.FC<Props> = ({ id, pic }) => {
     [id]: false,
   });
 
-  const updateLocalStorage = (newState: checkedState) => {
-    const checkLS = localStorage.getItem("pschecked");
-    if (!checkLS) {
-      localStorage.setItem("pschecked", JSON.stringify(newState));
-    } else {
-      const res = JSON.parse(checkLS) as checkedState;
-      const newLS = { ...res, ...newState };
-      localStorage.setItem("pschecked", JSON.stringify(newLS));
-    }
-  };
-
-  const copyToClipboard = async (text: string) => {
-    try {
-      await navigator.clipboard.writeText(text);
-    } catch (e) {
-      throw new Error("Error copying to clipboard");
-    }
-  };
-
   const handleClick = async (id: string) => {
     if (!storageState[id]) {
       const t = toast.loading("Copying to clipboard...");
@@ -47,7 +28,7 @@ const ID: React.FC<Props> = ({ id, pic }) => {
     }
     const newState = { [id]: !storageState[id] };
     setStorageState(newState);
-    updateLocalStorage(newState);
+    updateLocalStorage<checkedState>(newState);
   };
 
   useEffect(() => {
@@ -73,7 +54,6 @@ const ID: React.FC<Props> = ({ id, pic }) => {
               alt="Picture of the author"
               width={48}
               height={48}
-              // loading={"eager"}
             />
           )}
         </div>

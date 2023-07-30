@@ -3,12 +3,14 @@
 import { useState } from "react";
 import { api } from "@/trpc/client";
 import { useRouter } from "next/navigation";
+import { updateLocalStorage } from "@/utils";
 
 const ResearchIdSubmit = () => {
   const [v, setV] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const mutate = api.id.createNewID.mutate;
+
   const getImage = async () => {
     try {
       const id = getRandomNumber();
@@ -57,6 +59,7 @@ const ResearchIdSubmit = () => {
         checked: false,
       });
       setIsLoading(false);
+      updateLocalStorage({ [v]: true });
       router.refresh();
     } catch (e) {
       throw new Error("Error submitting ID");
