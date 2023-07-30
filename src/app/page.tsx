@@ -1,5 +1,6 @@
 import ResearchIdSubmit from "./ResearchIDSubmit";
 import ListOfIDs from "./ListOfIDs";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
@@ -12,8 +13,10 @@ export default function Home() {
       </h2>
       <ResearchIdSubmit />
       <div className="w-full border-t border-slate-400" />
-      {/* @ts-expect-error - Async Server Component */}
-      <ListOfIDs />
+      <Suspense fallback={<div className="mt-8">Fetching data...</div>}>
+        {/* @ts-expect-error - Async Server Component */}
+        <ListOfIDs />
+      </Suspense>
     </main>
   );
 }

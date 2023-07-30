@@ -1,5 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Suspense } from "react";
 import Image from "next/image";
 import { Copy, Check, Loader } from "lucide-react";
 import toast from "react-hot-toast";
@@ -49,12 +49,14 @@ const ID: React.FC<Props> = ({ id, pic }) => {
       <div className="flex w-full items-center justify-start gap-4 rounded-l-lg border border-slate-500 px-4 sm:w-64">
         <div className="h-12 w-12 overflow-hidden rounded-full border-slate-700">
           {pic && (
-            <Image
-              src={pic}
-              alt="Picture of the author"
-              width={48}
-              height={48}
-            />
+            <Suspense fallback={<Loader className="w-6 animate-spin" />}>
+              <Image
+                src={pic}
+                alt="Picture of the author"
+                width={48}
+                height={48}
+              />
+            </Suspense>
           )}
         </div>
         <div>{id}</div>
