@@ -46,16 +46,16 @@ export default function RootLayout({
       <body className={twMerge("font-sans", inter.variable)}>
         {children}
         <Toaster />
+        <footer
+          className={twMerge(
+            "absolute bottom-0 left-0 right-0 mx-auto flex h-10 w-full max-w-7xl items-center",
+            "font-sans",
+            inter.variable
+          )}
+        >
+          <div className="text-slate-400">Built by Kwan.</div>
+        </footer>
       </body>
-      <footer
-        className={twMerge(
-          "absolute bottom-0 left-0 right-0 mx-auto flex h-10 w-full max-w-7xl items-center",
-          "font-sans",
-          inter.variable
-        )}
-      >
-        <div className="text-slate-400">Built by Kwan.</div>
-      </footer>
     </html>
   );
 }
