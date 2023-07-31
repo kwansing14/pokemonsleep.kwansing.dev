@@ -42,7 +42,7 @@ export default function RootLayout({
       />
       <link rel="manifest" href="/favicon/site.webmanifest" />
       <meta name="msapplication-TileColor" content="#da532c" />
-      <meta name="theme-color" content="#ffffff" />
+      <meta name="theme-color" content="#170206" />
       <body className={twMerge("font-sans", inter.variable)}>
         {children}
         <Toaster />
