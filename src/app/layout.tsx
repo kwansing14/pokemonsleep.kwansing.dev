@@ -43,15 +43,19 @@ export default function RootLayout({
       <link rel="manifest" href="/favicon/site.webmanifest" />
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#ffffff" />
-      <body
-        className={twMerge(
-          "bg-background font-sans text-foreground",
-          inter.variable
-        )}
-      >
+      <body className={twMerge("font-sans", inter.variable)}>
         {children}
         <Toaster />
       </body>
+      <footer
+        className={twMerge(
+          "absolute bottom-0 left-0 right-0 mx-auto flex h-10 w-full max-w-7xl items-center",
+          "font-sans",
+          inter.variable
+        )}
+      >
+        <div className="text-slate-400">Built by Kwan.</div>
+      </footer>
     </html>
   );
 }

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
-    @apply bg-slate-950 text-sm text-slate-50;
+  html {
+    @apply relative min-h-screen bg-slate-950 p-0 text-sm text-slate-50;
   }
 }

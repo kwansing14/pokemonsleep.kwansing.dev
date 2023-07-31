@@ -4,7 +4,7 @@ import { Suspense } from "react";
 
 export default function Home() {
   return (
-    <main className="mx-auto min-h-screen w-full max-w-7xl px-4">
+    <main className="mx-auto w-full max-w-7xl px-4 pb-10">
       <h1 className="mt-4 border-l-4 py-1 pl-8 text-xl text-slate-200 sm:mt-12 sm:text-4xl">
         Welcome to the Pokemon Sleep Research Community!
       </h1>
