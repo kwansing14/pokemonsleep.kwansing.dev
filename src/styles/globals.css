@@ -3,6 +3,11 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --primary: theme("colors.slate.50");
+    --secondary: theme("colors.slate.300");
+    --tertiary: theme("colors.slate.500");
+  }
   html {
     @apply relative min-h-screen bg-slate-950 p-0 text-sm text-slate-50;
   }

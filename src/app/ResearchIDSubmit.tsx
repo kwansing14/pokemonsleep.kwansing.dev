@@ -24,8 +24,8 @@ const ResearchIdSubmit = () => {
     }
   };
 
-  const numToId = (num: number) => {
-    return num.toString().replace(/\d{4}(?!$)/g, "$&-");
+  const numToId = (nString: string) => {
+    return nString.replace(/\d{4}(?!$)/g, "$&-");
   };
 
   const getRandomNumber = () => {
@@ -39,9 +39,9 @@ const ResearchIdSubmit = () => {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
-    const string = value.match(/\d+/g)?.join("");
+    const string = value.match(/0*\d+/g)?.join("");
     if (string && string.length > 11 && string.length < 13) {
-      setV(numToId(Number(string)));
+      setV(numToId(string));
     } else {
       setV(value.slice(0, 14));
     }

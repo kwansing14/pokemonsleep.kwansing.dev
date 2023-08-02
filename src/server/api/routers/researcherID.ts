@@ -51,7 +51,7 @@ const createNewID = publicProcedure
 const getAllIds = publicProcedure.query(async ({ ctx }) => {
   return ctx.prisma.iDs.findMany({
     orderBy: { updatedAt: "desc" },
-    // take: 50,
+    take: 100,
   });
 });
 
