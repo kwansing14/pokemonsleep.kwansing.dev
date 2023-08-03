@@ -1,28 +1,17 @@
-# Create T3 App
+# Project Pokemon Sleeper - Research Community
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+The aim of this project is a
 
-## What's next? How do I make an app with this?
+1. A place to find other researchers easily.
+2. Easy to copy and paste Pokemon Sleeper IDs.
+3. Keeping track of the id you have copied.
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+I made a [post](https://www.reddit.com/r/PokemonSleep/comments/15gci82/i_have_created_a_simple_site_to_share_researcher/) on Reddit about this project.
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+This project is created with the beta [T3 Stack - App Router](https://create.t3.gg/) with the following stack:
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
+- [Next.js - App Router](https://nextjs.org)
 - [Prisma](https://prisma.io)
 - [Tailwind CSS](https://tailwindcss.com)
 - [tRPC](https://trpc.io)
-
-## Learn More
-
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
-
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
-
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
-
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+- [Planetscale DB](https://planetscale.com)
