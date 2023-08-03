@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { Inter } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 import { Toaster } from "react-hot-toast";
+import Link from "next/link";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -59,7 +60,17 @@ export default function RootLayout({
             inter.variable
           )}
         >
-          <div className="text-slate-400">Built by Kwan.</div>
+          <div className="ml-4 text-slate-400">Built by Kwan.</div>
+          <div className="ml-2 text-slate-400">
+            The source code is available on{"  "}
+            <Link
+              className="underline"
+              href="https://github.com/kwansing14/pokemonsleep.kwansing.dev"
+            >
+              Github
+            </Link>
+            .
+          </div>
         </footer>
       </body>
     </html>
