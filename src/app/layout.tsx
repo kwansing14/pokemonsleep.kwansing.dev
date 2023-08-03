@@ -14,6 +14,12 @@ export const metadata = {
   icons: {
     icon: "/favicon/favicon.ico",
   },
+  openGraph: {
+    type: "website",
+    title: "PokemonSleep - ResearchCommunity",
+    description: "A place to connect researchers who research on Pokemon Sleep",
+    images: "/favicon/mstile-150x150.png",
+  },
 };
 
 export default function RootLayout({
