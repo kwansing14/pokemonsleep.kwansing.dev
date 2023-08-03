@@ -55,6 +55,7 @@ const ID: React.FC<Props> = ({ id, pic }) => {
                 alt="Picture of the author"
                 width={48}
                 height={48}
+                unoptimized
               />
             </Suspense>
           )}
