@@ -1,5 +1,5 @@
-import ResearchIdSubmit from "./ResearchIDSubmit";
-import ListOfIDs from "./ListOfIDs";
+import ResearchIdSubmit from "@/app/components/ResearchIDSubmit";
+import ListOfIDs from "@/app/components/ListOfIDs";
 import { Suspense } from "react";
 
 export default function Home() {

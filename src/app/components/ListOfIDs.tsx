@@ -1,4 +1,4 @@
-import ID from "./ID";
+import ID from "@/app/components/ID";
 import { api } from "@/trpc/server";
 
 async function ListOfIDs() {
