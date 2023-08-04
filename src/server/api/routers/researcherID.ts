@@ -8,7 +8,7 @@ import { TRPCError } from "@trpc/server";
 // Create a new ratelimiter, that allows 10 requests per 10 seconds
 const ratelimit = new Ratelimit({
   redis: Redis.fromEnv(),
-  limiter: Ratelimit.slidingWindow(3, "10s"),
+  limiter: Ratelimit.slidingWindow(20, "30 m"),
   analytics: true,
   /**
    * Optional prefix for the keys used in redis. This is useful if you want to share a redis
