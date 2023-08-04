@@ -9,7 +9,7 @@ export default function Home() {
         Welcome to the Pokemon Sleep Research Community!
       </h1>
       <h2 className="text-md  border-l-4 py-1 pl-8 text-slate-400 sm:mt-0 sm:text-xl">
-        A place for pokemon researchers to add each other.
+        Share your Researcher ID / friend code while adding each other easily.
       </h2>
       <ResearchIdSubmit />
       <div className="w-full border-t border-slate-400" />

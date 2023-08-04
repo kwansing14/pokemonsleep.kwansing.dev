@@ -10,15 +10,17 @@ const inter = Inter({
 });
 
 export const metadata = {
-  title: "PokemonSleep - ResearchCommunity",
-  description: "A place to connect researchers who research on Pokemon Sleep",
+  title: "Pokemon Sleep - Research Community | Share your friend code",
+  description:
+    "A place to connect researchers who research on Pokemon Sleep | Start sharing your friend code now!",
   icons: {
     icon: "/favicon/favicon.ico",
   },
   openGraph: {
     type: "website",
-    title: "PokemonSleep - ResearchCommunity",
-    description: "A place to connect researchers who research on Pokemon Sleep",
+    title: "Pokemon Sleep - Research Community | Share your friend code",
+    description:
+      "A place to connect researchers who research on Pokemon Sleep  | Start sharing your friend code now!",
     images: "/favicon/mstile-150x150.png",
   },
 };
@@ -48,6 +50,7 @@ export default function RootLayout({
         href="/favicon/favicon-16x16.png"
       />
       <link rel="manifest" href="/favicon/site.webmanifest" />
+
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#170206" />
       <body className={twMerge("font-sans", inter.variable)}>
