@@ -13,8 +13,8 @@ const Slider = () => {
         className="rounded border bg-slate-300 px-4 py-2 text-slate-900"
         onClick={toggle}
       >
-        {showQR && "Show QR"}
-        {!showQR && "Hide QR"}
+        {showQR && "Hide QR"}
+        {!showQR && "Show QR"}
       </button>
     </div>
   );
