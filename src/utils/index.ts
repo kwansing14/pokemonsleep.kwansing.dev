@@ -16,3 +16,9 @@ export const copyToClipboard = async (text: string) => {
     throw new Error("Error copying to clipboard");
   }
 };
+
+export const convertIdToString = (id: string) => {
+  return id.replace(/-/g, "");
+};
+
+export const qrCodeSalt = "94jfutn";

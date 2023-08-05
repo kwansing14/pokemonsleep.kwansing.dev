@@ -2,6 +2,7 @@ import "@/styles/globals.css";
 import { Inter } from "next/font/google";
 import { twMerge } from "tailwind-merge";
 import { Toaster } from "react-hot-toast";
+import { Provider } from "@/app/context";
 import Link from "next/link";
 
 const inter = Inter({
@@ -53,29 +54,31 @@ export default function RootLayout({
 
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#170206" />
-      <body className={twMerge("font-sans", inter.variable)}>
-        {children}
-        <Toaster />
-        <footer
-          className={twMerge(
-            "absolute bottom-0 left-0 right-0 mx-auto flex h-10 w-full max-w-7xl items-center",
-            "font-sans",
-            inter.variable
-          )}
-        >
-          <div className="ml-4 text-slate-400">Built by Kwan.</div>
-          <div className="ml-2 text-slate-400">
-            The source code is available on{"  "}
-            <Link
-              className="underline"
-              href="https://github.com/kwansing14/pokemonsleep.kwansing.dev"
-            >
-              Github
-            </Link>
-            .
-          </div>
-        </footer>
-      </body>
+      <Provider>
+        <body className={twMerge("font-sans", inter.variable)}>
+          {children}
+          <Toaster />
+          <footer
+            className={twMerge(
+              "absolute bottom-0 left-0 right-0 mx-auto flex h-10 w-full max-w-7xl items-center",
+              "font-sans",
+              inter.variable
+            )}
+          >
+            <div className="ml-4 text-slate-400">Built by Kwan.</div>
+            <div className="ml-2 text-slate-400">
+              The source code is available on{"  "}
+              <Link
+                className="underline"
+                href="https://github.com/kwansing14/pokemonsleep.kwansing.dev"
+              >
+                Github
+              </Link>
+              .
+            </div>
+          </footer>
+        </body>
+      </Provider>
     </html>
   );
 }

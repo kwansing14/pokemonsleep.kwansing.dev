@@ -1,5 +1,6 @@
 import ResearchIdSubmit from "@/app/components/ResearchIDSubmit";
 import ListOfIDs from "@/app/components/ListOfIDs";
+import Slider from "@/app/components/Toggle";
 import { Suspense } from "react";
 
 export default function Home() {
@@ -13,6 +14,7 @@ export default function Home() {
       </h2>
       <ResearchIdSubmit />
       <div className="w-full border-t border-slate-400" />
+      <Slider />
       <Suspense fallback={<div className="mt-8">Fetching data...</div>}>
         {/* @ts-expect-error - Async Server Component */}
         <ListOfIDs />

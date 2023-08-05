@@ -1,18 +1,11 @@
-import ID from "@/app/components/ID";
+import IDS from "@/app/components/IDS";
 import { api } from "@/trpc/server";
 
 async function ListOfIDs() {
   const ids = await api.id.getAllIds.query();
   return (
     <div className="mt-8 flex flex-wrap justify-between gap-4 sm:mt-12">
-      <div className="flex flex-wrap justify-between gap-4">
-        {ids.map((id) => (
-          <div className="flex w-full sm:w-auto" key={id.id}>
-            <ID id={id.researcherID} pic={id.pic} />
-          </div>
-        ))}
-        {ids.length % 3 === 2 && <div className="w-80" />}
-      </div>
+      <IDS ids={ids} />
     </div>
   );
 }
