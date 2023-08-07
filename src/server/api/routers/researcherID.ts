@@ -5,10 +5,10 @@ import { Ratelimit } from "@upstash/ratelimit"; // for deno: see above
 import { Redis } from "@upstash/redis";
 import { TRPCError } from "@trpc/server";
 
-// Create a new ratelimiter, that allows 10 requests per 10 seconds
+// Create a new ratelimiter, that allows 10 requests per 30 minutes
 const ratelimit = new Ratelimit({
   redis: Redis.fromEnv(),
-  limiter: Ratelimit.slidingWindow(20, "30 m"),
+  limiter: Ratelimit.slidingWindow(10, "30 m"),
   analytics: true,
   /**
    * Optional prefix for the keys used in redis. This is useful if you want to share a redis
@@ -27,10 +27,15 @@ const createNewID = publicProcedure
     })
   )
   .mutation(async ({ ctx, input }) => {
+    // get user ip for rate limiting
+    let ip = ctx.headers.get("x-real-ip");
+    const forwardedFor = ctx.headers.get("x-forwarded-for");
+    if (!ip && forwardedFor) ip = forwardedFor?.split(",").at(0) ?? "Unknown";
+    const { success } = await ratelimit.limit(ip as string);
+
     const reg = /^\d{4}-\d{4}-\d{4}$/;
     const isValid = reg.test(input.researcherID);
     if (!isValid) throw new Error("Invalid ID");
-    const { success } = await ratelimit.limit(input.researcherID);
     if (!success) throw new TRPCError({ code: "TOO_MANY_REQUESTS" });
     return ctx.prisma.iDs.upsert({
       where: {
