@@ -2,6 +2,8 @@ import ID from "@/app/components/ID";
 import { api } from "@/trpc/server";
 
 async function ListOfIDs() {
+  // set delay
+  await new Promise((resolve) => setTimeout(resolve, 1000));
   const ids = await api.id.getAllIds.query();
   return (
     <div className="mt-8 flex flex-wrap justify-between gap-4 sm:mt-12">
