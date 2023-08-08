@@ -1,5 +1,6 @@
 import ResearchIdSubmit from "@/app/components/ResearchIDSubmit";
 import ListOfIDs from "@/app/components/ListOfIDs";
+import Image from "next/image";
 import { Suspense } from "react";
 
 export default function Home() {
@@ -13,7 +14,18 @@ export default function Home() {
       </h2>
       <ResearchIdSubmit />
       <div className="w-full border-t border-slate-400" />
-      <Suspense fallback={<div className="mt-8">Fetching data...</div>}>
+      <Suspense
+        fallback={
+          <div className="mt-8 flex w-full justify-center">
+            <Image
+              src="/pikachu-running.gif"
+              alt="loading"
+              width={64}
+              height={64}
+            />
+          </div>
+        }
+      >
         {/* @ts-expect-error - Async Server Component */}
         <ListOfIDs />
       </Suspense>
