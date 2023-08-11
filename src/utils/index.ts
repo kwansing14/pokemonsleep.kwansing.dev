@@ -1,3 +1,6 @@
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
 export const updateLocalStorage = <T>(newState: T) => {
   const checkLS = localStorage.getItem("pschecked");
   if (!checkLS) {
@@ -15,4 +18,9 @@ export const copyToClipboard = async (text: string) => {
   } catch (e) {
     throw new Error("Error copying to clipboard");
   }
+};
+
+export const cn = (...inputs: ClassValue[]) => {
+  const a = inputs;
+  return twMerge(clsx(a));
 };

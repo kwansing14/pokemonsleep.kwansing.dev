@@ -4,7 +4,11 @@ import { useState } from "react";
 import { api } from "@/trpc/client";
 import { useRouter } from "next/navigation";
 import { updateLocalStorage } from "@/utils";
-// import { revalidatePath } from "next/cache";
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+} from "@/app/components/FAQpopover";
 
 const ResearchIdSubmit = () => {
   const [v, setV] = useState("");
@@ -70,7 +74,30 @@ const ResearchIdSubmit = () => {
 
   return (
     <>
-      <div className="mb-4 pt-8 sm:pt-8">Paste your Researcher ID here:</div>
+      <div className="mb-4 flex items-end justify-between pt-8 sm:pt-8">
+        <div>Paste your Researcher ID here:</div>
+        <Popover>
+          <PopoverTrigger className="flex items-center justify-center rounded-md border border-slate-300 px-4 py-2 hover:bg-slate-800">
+            FAQ
+          </PopoverTrigger>
+          <PopoverContent className="mr-4 bg-slate-900">
+            <ul className="-mb-2 text-sm [&>li]:mb-2">
+              <li>
+                1. Only the most recent 100 IDS added will be displayed in the
+                list.
+              </li>
+              <li>
+                2. If the same ID is added again, the previous entry will be
+                removed, and the identical ID will take its place at the top.
+              </li>
+              <li>
+                3. A randomly generated Pokemon image is included for purely
+                aesthetic purposes, with no functional significance.
+              </li>
+            </ul>
+          </PopoverContent>
+        </Popover>
+      </div>
       <input
         className="mb-4 mr-4 w-full rounded-lg border border-slate-500 bg-transparent px-4 py-4 outline-none focus:border-slate-300 sm:mb-12 sm:w-80"
         onChange={handleChange}
