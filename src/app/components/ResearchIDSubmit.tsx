@@ -4,6 +4,7 @@ import { useState } from "react";
 import { api } from "@/trpc/client";
 import { useRouter } from "next/navigation";
 import { updateLocalStorage } from "@/utils";
+// import { revalidatePath } from "next/cache";
 
 const ResearchIdSubmit = () => {
   const [v, setV] = useState("");
@@ -62,8 +63,8 @@ const ResearchIdSubmit = () => {
       updateLocalStorage({ [v]: true });
       router.refresh();
     } catch (e) {
-      throw new Error("Error submitting ID");
       setIsLoading(false);
+      throw new Error("Error submitting ID");
     }
   };
 
