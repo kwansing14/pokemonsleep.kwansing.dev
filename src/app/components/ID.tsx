@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Copy, Check, Loader } from "lucide-react";
 import toast from "react-hot-toast";
 import { updateLocalStorage, copyToClipboard } from "@/utils";
+import { twMerge } from "tailwind-merge";
 
 interface Props {
   id: string;
@@ -16,9 +17,12 @@ export interface checkedState {
 
 const ID: React.FC<Props> = ({ id, pic }) => {
   const [isLoading, setIsLoading] = useState(true);
+  const [usingFallbackImage, setUsingFallbackImage] = useState(false);
   const [storageState, setStorageState] = useState<checkedState>({
     [id]: false,
   });
+
+  const fallbackImgSrc = "/questionmark.png";
 
   const handleClick = async (id: string) => {
     if (!storageState[id]) {
@@ -51,10 +55,15 @@ const ID: React.FC<Props> = ({ id, pic }) => {
           {pic && (
             <Suspense fallback={<Loader className="w-6 animate-spin" />}>
               <Image
-                src={pic}
-                alt="Picture of the author"
-                width={48}
-                height={48}
+                className={twMerge(
+                  "mx-auto h-full object-contain",
+                  usingFallbackImage && "py-1"
+                )}
+                src={usingFallbackImage ? fallbackImgSrc : pic}
+                alt="Random Pokemon Image"
+                width={usingFallbackImage ? 24 : 48}
+                height={usingFallbackImage ? 48 : 48}
+                onError={() => setUsingFallbackImage(true)}
                 unoptimized
               />
             </Suspense>
