@@ -53,6 +53,17 @@ export default function RootLayout({
 
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#170206" />
+      <script
+        async
+        custom-element="amp-ad"
+        src="https://cdn.ampproject.org/v0/amp-ad-0.1.js"
+      />
+      <script
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6022766845001236"
+        crossOrigin="anonymous"
+      />
+
       <body className={twMerge("font-sans", inter.variable)}>
         {children}
         <Toaster />
