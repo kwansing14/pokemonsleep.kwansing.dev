@@ -1,8 +1,8 @@
-import ResearchIdSubmit from "@/app/components/ResearchIDSubmit";
-import ListOfIDs from "@/app/components/ListOfIDs";
-import Image from "next/image";
 import { Suspense } from "react";
-import Script from "next/script";
+import Image from "next/image";
+import ResearchIdSubmit from "@/ResearchIDSubmit";
+import ListOfIDs from "@/app/components/ListOfIDs";
+import { AdBanner } from "@/app/components/AdBanner";
 
 export default function Home() {
   return (
@@ -14,14 +14,7 @@ export default function Home() {
         Share your Researcher ID / friend code while adding each other easily.
       </h2>
       <ResearchIdSubmit />
-      <ins
-        className="adsbygoogle"
-        style={{ display: "block" }}
-        data-ad-client="ca-pub-6022766845001236"
-        data-ad-slot="7917842835"
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      ></ins>
+      <AdBanner />
       <div className="w-full border-t border-slate-400" />
       <Suspense
         fallback={
