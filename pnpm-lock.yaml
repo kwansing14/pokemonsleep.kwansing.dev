@@ -1,4 +1,4 @@
-lockfileVersion: '6.1'
+lockfileVersion: '6.0'
 
 settings:
   autoInstallPeers: true
@@ -64,6 +64,9 @@ devDependencies:
   '@types/eslint':
     specifier: ^8.37.0
     version: 8.37.0
+  '@types/google-publisher-tag':
+    specifier: ^1.20231211.0
+    version: 1.20231211.0
   '@types/node':
     specifier: ^18.16.0
     version: 18.16.0
@@ -872,6 +875,10 @@ packages:
 
   /@types/estree@1.0.1:
     resolution: {integrity: sha512-LG4opVs2ANWZ1TJoKc937iMmNstM/d0ae1vNbnBvBhqCSezgVUOzcLCqbI5elV8Vy6WKwKjaqR+zO9VKirBBCA==}
+    dev: true
+
+  /@types/google-publisher-tag@1.20231211.0:
+    resolution: {integrity: sha512-/eOhYkh1SXCrSK+lPlrHT05mgwyr+AhMEmo2xKm8se4o32N3ml/sSCNKDH7dF0RmXDmIsbBQF2u3row23Aitnw==}
     dev: true
 
   /@types/json-schema@7.0.12:

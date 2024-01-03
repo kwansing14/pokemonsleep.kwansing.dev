@@ -1,7 +1,8 @@
-import ResearchIdSubmit from "@/app/components/ResearchIDSubmit";
-import ListOfIDs from "@/app/components/ListOfIDs";
-import Image from "next/image";
 import { Suspense } from "react";
+import Image from "next/image";
+import ResearchIdSubmit from "@/ResearchIDSubmit";
+import ListOfIDs from "@/app/components/ListOfIDs";
+import { AdBanner } from "@/app/components/AdBanner";
 
 export default function Home() {
   return (
@@ -13,6 +14,7 @@ export default function Home() {
         Share your Researcher ID / friend code while adding each other easily.
       </h2>
       <ResearchIdSubmit />
+      <AdBanner />
       <div className="w-full border-t border-slate-400" />
       <Suspense
         fallback={
